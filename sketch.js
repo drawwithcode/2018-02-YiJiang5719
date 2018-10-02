@@ -7,8 +7,8 @@ function setup() {
   // put setup code here
   createCanvas(windowWidth,windowHeight);
   smooth();
-  background(23, 37, 248);
-  frameRate(60);
+  background(0);
+
   angleMode(DEGREES);
 
   //noCursor();
@@ -18,40 +18,47 @@ function setup() {
 function draw()
  {
 
-  var x=200 * cos(frameCount * 4);
-  var y=200 * sin(frameCount * 4);
-  stroke(122, 23, 248);
-  fill(248, 166, 23,30);
+  var x= sin(frameCount );
+  var y= cos(frameCount );
+  /*stroke(122, 23, 248);
+  noFill();
 
   //Texture background
   ellipse(random(0,windowWidth),random(0,windowHeight),x*sin(frameCount/10));
   noFill();
   ellipse(random(0,windowWidth),random(0,windowHeight),y*cos(frameCount/10)+10);
-
+  */
 
   //Up Circles
   push();
   translate(width/2,height/2);
   rotate(frameCount/60);
-  var col=lerpColor(color(248, 23, 149),color(122, 23, 248),frameCount/40);
+  var col=lerpColor(color(187, 23, 248),color(23, 248, 187),frameCount/2000);
   stroke(col);
-  line(-200,0,x,y);
+  scale(0.5);
+  line(x*200,y*400,x*200,y*200);
+  ellipse(0,0,x*200);
+  ellipse(0,0,y*400)
+
   pop();
+
 
   //Down Circles
   push();
   translate(width/2,height/2);
-  rotate(frameCount/60);
-  var col=lerpColor(color(187, 23, 248),color(248, 23, 149),frameCount/10);
+  rotate(frameCount/20);
+  var col=lerpColor(color(187, 23, 248),color(23, 248, 187),frameCount/2000);
   stroke(col);
-  line(x,y,x+60,y+60);
+  scale(0.5);
+  line(x*400,y*200,x*200,y*200);
   pop();
 
   //LoopEnd
-  if(frameCount > 1080)
+  /*if(frameCount > 720)
   {
     noLoop();
-  }
+  }*/
+
 
 
 
